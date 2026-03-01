@@ -46,13 +46,16 @@ body {
 nav {
   position: fixed; top: 0; width: 100%; z-index: 100;
   background: rgba(30, 11, 51, 0.97);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-bottom: 2px solid var(--gold);
-  display: flex; align-items: center; justify-content: space-between;
+  display: -webkit-flex; display: flex;
+  -webkit-align-items: center; align-items: center;
+  -webkit-justify-content: space-between; justify-content: space-between;
   padding: 0 40px;
   height: 68px;
 }
-.nav-logos { display: flex; align-items: center; gap: 14px; }
+.nav-logos { display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; gap: 14px; }
 .nav-logos img { height: 46px; width: auto; }
 .nav-title {
   font-family: 'Cinzel', serif;
@@ -64,7 +67,7 @@ nav {
 }
 .nav-title span { display: block; font-size: 10px; color: #C8B080; letter-spacing: 3px; }
 .nav-links {
-  display: flex; gap: 30px; list-style: none;
+  display: -webkit-flex; display: flex; gap: 30px; list-style: none;
 }
 .nav-links a {
   font-family: 'Cinzel', serif;
@@ -80,13 +83,16 @@ nav {
 .hero {
   position: relative;
   min-height: 100vh;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
+  min-height: -webkit-fill-available;
+  display: -webkit-flex; display: flex;
+  -webkit-flex-direction: column; flex-direction: column;
+  -webkit-align-items: center; align-items: center;
+  -webkit-justify-content: center; justify-content: center;
   overflow: hidden;
   padding: 100px 20px 60px;
 }
 .hero-bg {
-  position: absolute; inset: 0;
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0;
   background:
     radial-gradient(ellipse at 20% 50%, rgba(74,30,107,0.5) 0%, transparent 60%),
     radial-gradient(ellipse at 80% 20%, rgba(196,154,42,0.15) 0%, transparent 50%),
@@ -95,7 +101,7 @@ nav {
 
 /* Cedar tree SVG pattern overlay */
 .hero-pattern {
-  position: absolute; inset: 0;
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0;
   background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L20 20 L25 20 L15 35 L22 35 L12 50 L48 50 L38 35 L45 35 L35 20 L40 20 Z' fill='none' stroke='rgba(196,154,42,0.08)' stroke-width='1'/%3E%3C/svg%3E");
   background-size: 80px 80px;
   opacity: 0.6;
@@ -109,6 +115,7 @@ nav {
   top: 50%; left: 50%;
   transform: translate(-50%, -48%);
   pointer-events: none;
+  -webkit-user-select: none;
   user-select: none;
   line-height: 1;
 }
@@ -119,13 +126,19 @@ nav {
   max-width: 800px;
   animation: fadeUp 1.2s ease forwards;
 }
+@-webkit-keyframes fadeUp {
+  from { opacity:0; -webkit-transform: translateY(40px); transform: translateY(40px); }
+  to   { opacity:1; -webkit-transform: translateY(0); transform: translateY(0); }
+}
 @keyframes fadeUp {
   from { opacity:0; transform: translateY(40px); }
   to   { opacity:1; transform: translateY(0); }
 }
 
 .hero-logos {
-  display: flex; align-items: center; justify-content: center;
+  display: -webkit-flex; display: flex;
+  -webkit-align-items: center; align-items: center;
+  -webkit-justify-content: center; justify-content: center;
   gap: 40px; margin-bottom: 40px;
 }
 .hero-logos img {
@@ -134,14 +147,22 @@ nav {
   animation: floatLogo 4s ease-in-out infinite;
 }
 .hero-logos img:nth-child(2) { animation-delay: 0.5s; height: 95px; }
+@-webkit-keyframes floatLogo {
+  0%,100% { -webkit-transform: translateY(0); transform: translateY(0); }
+  50% { -webkit-transform: translateY(-6px); transform: translateY(-6px); }
+}
 @keyframes floatLogo {
   0%,100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
 }
 
 .hero-divider {
-  display: flex; align-items: center; gap: 16px;
+  display: -webkit-flex; display: flex;
+  -webkit-align-items: center; align-items: center;
+  gap: 16px;
   margin: 0 auto 28px;
+  width: -webkit-fit-content;
+  width: -webkit-fit-content;
   width: fit-content;
 }
 .hero-divider::before, .hero-divider::after {
@@ -190,7 +211,9 @@ nav {
 }
 
 .hero-cta {
-  display: inline-flex; align-items: center; gap: 12px;
+  display: -webkit-inline-flex; display: inline-flex;
+  -webkit-align-items: center; align-items: center;
+  gap: 12px;
   padding: 15px 40px;
   background: linear-gradient(135deg, var(--gold), #A07820);
   color: var(--deep);
@@ -200,30 +223,34 @@ nav {
   letter-spacing: 3px;
   text-decoration: none;
   border: 1px solid var(--gold2);
-  transition: all 0.3s;
+  -webkit-transition: all 0.3s; transition: all 0.3s;
   position: relative;
   overflow: hidden;
 }
 .hero-cta::before {
   content: '';
-  position: absolute; inset: 0;
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0;
   background: linear-gradient(135deg, transparent, rgba(255,255,255,0.15), transparent);
-  transform: translateX(-100%);
-  transition: transform 0.5s;
+  -webkit-transform: translateX(-100%); transform: translateX(-100%);
+  -webkit-transition: transform 0.5s; transition: transform 0.5s;
 }
 .hero-cta:hover::before { transform: translateX(100%); }
 .hero-cta:hover { box-shadow: 0 6px 30px rgba(196,154,42,0.5); transform: translateY(-2px); }
 
 .hero-scroll {
   position: absolute; bottom: 36px; left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%); transform: translateX(-50%);
   color: rgba(196,154,42,0.5);
   font-size: 11px;
   letter-spacing: 4px;
   font-family: 'Cinzel', serif;
-  display: flex; flex-direction: column; align-items: center; gap: 8px;
-  animation: pulse 2s ease-in-out infinite;
+  display: -webkit-flex; display: flex;
+  -webkit-flex-direction: column; flex-direction: column;
+  -webkit-align-items: center; align-items: center;
+  gap: 8px;
+  -webkit-animation: pulse 2s ease-in-out infinite; animation: pulse 2s ease-in-out infinite;
 }
+@-webkit-keyframes pulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
 @keyframes pulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
 .hero-scroll::after {
   content: '▼';
@@ -306,7 +333,7 @@ section { padding: 90px 40px; }
 }
 .faith::before {
   content: '';
-  position: absolute; inset: 0;
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0;
   background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L20 20 L25 20 L15 35 L22 35 L12 50 L48 50 L38 35 L45 35 L35 20 L40 20 Z' fill='none' stroke='rgba(196,154,42,0.07)' stroke-width='1'/%3E%3C/svg%3E");
   background-size: 80px 80px;
 }
@@ -367,9 +394,9 @@ section { padding: 90px 40px; }
 .event-card {
   background: #fff;
   border: 1px solid rgba(74,30,107,0.12);
-  display: flex;
+  display: -webkit-flex; display: flex;
   overflow: hidden;
-  transition: all 0.35s;
+  -webkit-transition: all 0.35s; transition: all 0.35s;
   box-shadow: 0 2px 20px rgba(0,0,0,0.04);
 }
 .event-card:hover {
@@ -379,8 +406,10 @@ section { padding: 90px 40px; }
 .event-date {
   min-width: 80px;
   background: var(--deep);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
+  display: -webkit-flex; display: flex;
+  -webkit-flex-direction: column; flex-direction: column;
+  -webkit-align-items: center; align-items: center;
+  -webkit-justify-content: center; justify-content: center;
   padding: 20px 14px;
   color: var(--gold2);
 }
@@ -433,10 +462,12 @@ section { padding: 90px 40px; }
   overflow: hidden;
   background: var(--deep);
   aspect-ratio: 3/4;
-  display: flex; flex-direction: column;
-  justify-content: flex-end;
+  min-height: 360px; /* fallback for Safari < 15 */
+  display: -webkit-flex; display: flex;
+  -webkit-flex-direction: column; flex-direction: column;
+  -webkit-justify-content: flex-end; justify-content: flex-end;
   padding: 28px 24px;
-  transition: transform 0.4s;
+  -webkit-transition: transform 0.4s; transition: transform 0.4s;
 }
 .saint-card:hover { transform: scale(1.02); }
 .saint-card::before {
@@ -449,14 +480,14 @@ section { padding: 90px 40px; }
   pointer-events: none;
 }
 .saint-bg {
-  position: absolute; inset: 0;
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0;
   background: linear-gradient(170deg, var(--purple), var(--deep));
 }
 .saint-card:nth-child(1) .saint-bg { background: linear-gradient(170deg, #3D1B5E, #1A0830); }
 .saint-card:nth-child(2) .saint-bg { background: linear-gradient(170deg, #2A1848, #1E1040); }
 .saint-card:nth-child(3) .saint-bg { background: linear-gradient(170deg, #1C1248, #0D0820); }
 .saint-overlay {
-  position: absolute; inset: 0;
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0;
   background: linear-gradient(to top, rgba(10,4,24,0.9) 0%, transparent 55%);
 }
 .saint-icon {
@@ -505,7 +536,7 @@ section { padding: 90px 40px; }
   margin-top: 30px;
 }
 .contact-row {
-  display: flex; gap: 16px; align-items: flex-start;
+  display: -webkit-flex; display: flex; gap: 16px; -webkit-align-items: flex-start; align-items: flex-start;
   margin-bottom: 24px;
   color: rgba(255,255,255,0.75);
   font-size: 15px;
@@ -583,7 +614,7 @@ footer {
   padding: 50px 40px 30px;
   text-align: center;
 }
-.footer-logos { display: flex; justify-content: center; gap: 30px; margin-bottom: 24px; }
+.footer-logos { display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; gap: 30px; margin-bottom: 24px; }
 .footer-logos img { height: 55px; opacity: 0.8; filter: grayscale(20%); }
 .footer-title {
   font-family: 'Cinzel', serif;
@@ -600,7 +631,7 @@ footer {
   margin-bottom: 30px;
 }
 .footer-links {
-  display: flex; justify-content: center; gap: 30px;
+  display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; gap: 30px;
   list-style: none; margin-bottom: 30px;
 }
 .footer-links a {
@@ -623,7 +654,7 @@ footer {
 /* Hamburger */
 .hamburger {
   display: none;
-  flex-direction: column;
+  -webkit-flex-direction: column; flex-direction: column;
   gap: 5px;
   cursor: pointer;
   background: none;
@@ -640,9 +671,9 @@ footer {
 /* Responsive */
 @media (max-width: 768px) {
   nav { padding: 0 16px; height: 60px; }
-  .nav-links { display: none; flex-direction: column; position: absolute; top: 60px; left: 0; right: 0; background: rgba(10,4,21,0.98); padding: 20px 24px; gap: 18px; border-bottom: 1px solid var(--gold); z-index: 200; }
-  .nav-links.open { display: flex; }
-  .hamburger { display: flex; }
+  .nav-links { display: none; -webkit-flex-direction: column; flex-direction: column; position: absolute; top: 60px; left: 0; right: 0; background: rgba(10,4,21,0.98); padding: 20px 24px; gap: 18px; border-bottom: 1px solid var(--gold); z-index: 200; }
+  .nav-links.open { display: -webkit-flex; display: flex; }
+  .hamburger { display: -webkit-flex; display: flex; }
   .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
   .faith-grid { grid-template-columns: 1fr; }
   .events-grid { grid-template-columns: 1fr; }
@@ -763,7 +794,7 @@ footer {
         <p>We gather in prayer before every community celebration to pray the Rosary together, honoring Our Lady of Lebanon — patroness of the Maronite people and of peace.</p>
       </div>
       <div class="faith-card reveal">
-        <span class="faith-icon">🌲</span>
+        <span class="faith-icon">✦</span>
         <h3>The Cedar of Lebanon</h3>
         <p>The Cedar is our eternal symbol — standing tall through centuries, rooted deep. Like the cedars of Lebanon praised in Scripture, our faith endures through every storm.</p>
       </div>
@@ -774,7 +805,7 @@ footer {
         <p>Our patron Saint Maron (350–410 AD) was a Syrian monk whose holiness inspired thousands. His disciples spread the faith through Mount Lebanon, founding our great Church.</p>
       </div>
       <div class="faith-card reveal">
-        <span class="faith-icon">🕊</span>
+        <span class="faith-icon">✝</span>
         <h3>Full Communion</h3>
         <p>The Maronite Church is an Eastern Catholic Church in full and continuous communion with the Pope in Rome — never broken throughout our 1,600-year history.</p>
       </div>
@@ -900,7 +931,7 @@ footer {
             </div>
           </div>
           <div class="contact-row">
-            <span class="contact-icon">🕊</span>
+            <span class="contact-icon">✉</span>
             <div>
               <span class="contact-label">DIOCESE</span>
               Eparchy of Saint Maron of Canada<br>Under Bishop Paul Marwan Tabet
@@ -979,10 +1010,27 @@ window.addEventListener('scroll', () => {
     window.scrollY > 50 ? 'rgba(10,4,21,0.98)' : 'rgba(30,11,51,0.97)';
 });
 
+// Hamburger menu
+const hamburger = document.querySelector('.hamburger');
+const navLinks  = document.querySelector('.nav-links');
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+    });
+  });
+}
+
 // Form submit
-document.querySelector('.form-submit').addEventListener('click', () => {
-  alert('Thank you for your message! We will be in touch soon. God bless you. ✝');
-});
+const formSubmit = document.querySelector('.form-submit');
+if (formSubmit) {
+  formSubmit.addEventListener('click', () => {
+    alert('Thank you for your message! We will be in touch soon. God bless you. ✝');
+  });
+}
 </script>
 </body>
 </html>
