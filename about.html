@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Maronite Association of BC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .mission-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-top: 60px;
+  }
+  .mission-text h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    color: var(--deep);
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+  }
+  .mission-text p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--grey);
+    margin-bottom: 16px;
+  }
+  .mission-img-wrap {
+    position: relative;
+  }
+  .mission-img-wrap img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 8px 40px rgba(30,11,51,0.15);
+  }
+  .mission-img-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border: 2px solid rgba(196,154,42,0.3);
+    border-radius: 20px;
+    z-index: -1;
+  }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 50px;
+  }
+  .value-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    border: 1px solid rgba(196,154,42,0.15);
+    box-shadow: 0 4px 20px rgba(30,11,51,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .value-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(30,11,51,0.12);
+  }
+  .value-icon { font-size: 38px; margin-bottom: 14px; }
+  .value-title {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: var(--deep);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  .value-text { font-size: 14px; color: var(--grey); line-height: 1.7; }
+
+  .leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+  }
+  .leader-card {
+    text-align: center;
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px 20px;
+    border: 1px solid rgba(196,154,42,0.15);
+    box-shadow: 0 4px 20px rgba(30,11,51,0.06);
+  }
+  .leader-avatar {
+    width: 90px; height: 90px;
+    background: linear-gradient(135deg, var(--purple), var(--mid));
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 34px;
+    color: rgba(232,197,90,0.9);
+    border: 3px solid rgba(196,154,42,0.3);
+  }
+  .leader-name {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: var(--deep);
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+  }
+  .leader-role { font-size: 12px; color: var(--grey); letter-spacing: 1px; }
+
+  .history-timeline { margin-top: 50px; }
+  .timeline-item {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+    padding-left: 20px;
+    border-left: 2px solid rgba(196,154,42,0.3);
+    position: relative;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -7px; top: 6px;
+    width: 12px; height: 12px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+  .timeline-year {
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    color: var(--gold);
+    font-weight: 700;
+    min-width: 60px;
+    margin-top: 2px;
+  }
+  .timeline-content h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    color: var(--deep);
+    margin-bottom: 6px;
+  }
+  .timeline-content p { font-size: 14px; color: var(--grey); line-height: 1.7; }
+
+  @media (max-width: 768px) {
+    .mission-block { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logos">
+    <div class="nav-title">MARONITE ASSOCIATION<span>OF BRITISH COLUMBIA</span></div>
+  </div>
+  <button class="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="faith.html">Our Faith</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="saints.html">Saints</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-pattern"></div>
+  <div class="page-hero-content">
+    <p class="page-hero-eyebrow">✦ WHO WE ARE ✦</p>
+    <h1 class="page-hero-title">About Us</h1>
+    <p class="page-hero-sub">Rooted in faith, united in community, sharing the Maronite heritage</p>
+    <div class="page-divider"><span>✝</span></div>
+  </div>
+</div>
+
+<!-- MISSION -->
+<div class="content-section">
+  <div style="text-align:center;">
+    <p class="section-label">OUR MISSION</p>
+    <h2 class="section-title">Who We Are</h2>
+    <div class="section-rule"></div>
+    <p class="section-desc">The Maronite Association of British Columbia serves as a spiritual and cultural home for Maronite Catholics across the province, preserving our ancient heritage while building a vibrant community.</p>
+  </div>
+
+  <div class="mission-block">
+    <div class="mission-text reveal">
+      <h3>Our Community</h3>
+      <p>Founded by Lebanese Maronite families who settled in British Columbia, our association has grown into a welcoming community that spans generations. We celebrate our Syriac liturgical tradition — one of the oldest living Christian rites — while embracing all who seek spiritual nourishment and fellowship.</p>
+      <p>Whether you are a lifelong Maronite, a newcomer to British Columbia, or someone curious about our ancient faith, you are warmly welcomed among us.</p>
+      <a href="contact.html" class="btn-gold" style="margin-top:10px;">Get In Touch ✝</a>
+    </div>
+    <div class="mission-img-wrap reveal">
+      <img src="saint_maron.jpg" alt="Saint Maron" style="max-height:400px;object-fit:cover;">
+    </div>
+  </div>
+</div>
+
+<!-- VALUES -->
+<div style="background:var(--offwhite); padding: 80px 20px;">
+  <div style="max-width:1100px; margin:0 auto; text-align:center;">
+    <p class="section-label">WHAT WE STAND FOR</p>
+    <h2 class="section-title">Our Core Values</h2>
+    <div class="section-rule"></div>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-icon">✝</div>
+        <h3 class="value-title">Authentic Faith</h3>
+        <p class="value-text">Grounded in the Maronite liturgical tradition rooted in the Syriac-Antiochene heritage, faithful to Rome.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-icon">🌲</div>
+        <h3 class="value-title">Lebanese Heritage</h3>
+        <p class="value-text">Celebrating the culture, language, music, and traditions of Lebanon — the homeland of the cedars.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-icon">🤝</div>
+        <h3 class="value-title">Community</h3>
+        <p class="value-text">Building lasting bonds of friendship, mutual support, and spiritual growth among all members.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-icon">🌏</div>
+        <h3 class="value-title">Outreach</h3>
+        <p class="value-text">Welcoming newcomers, supporting charitable causes, and serving the broader BC community.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LEADERSHIP -->
+<div class="content-section">
+  <div style="text-align:center;">
+    <p class="section-label">OUR TEAM</p>
+    <h2 class="section-title">Leadership</h2>
+    <div class="section-rule"></div>
+    <p class="section-desc">Dedicated volunteers and clergy who serve our community with faith and love.</p>
+  </div>
+  <div class="leadership-grid">
+    <div class="leader-card reveal">
+      <div class="leader-avatar">✝</div>
+      <p class="leader-name">His Excellency</p>
+      <p class="leader-role">Bishop, Eparchy of Saint Maron</p>
+    </div>
+    <div class="leader-card reveal">
+      <div class="leader-avatar">🙏</div>
+      <p class="leader-name">Association President</p>
+      <p class="leader-role">Board of Directors</p>
+    </div>
+    <div class="leader-card reveal">
+      <div class="leader-avatar">📖</div>
+      <p class="leader-name">Parish Coordinator</p>
+      <p class="leader-role">Programs & Events</p>
+    </div>
+    <div class="leader-card reveal">
+      <div class="leader-avatar">🌲</div>
+      <p class="leader-name">Cultural Director</p>
+      <p class="leader-role">Heritage & Outreach</p>
+    </div>
+  </div>
+</div>
+
+<!-- HISTORY -->
+<div style="background:var(--offwhite); padding: 80px 20px;">
+  <div style="max-width:1100px; margin:0 auto; text-align:center;">
+    <p class="section-label">OUR STORY</p>
+    <h2 class="section-title">History &amp; Milestones</h2>
+    <div class="section-rule"></div>
+    <div class="history-timeline" style="max-width:700px; margin:0 auto; text-align:left;">
+      <div class="timeline-item reveal">
+        <div class="timeline-year">Early</div>
+        <div class="timeline-content">
+          <h4>Maronite Families Arrive in BC</h4>
+          <p>Lebanese Maronite families begin settling in British Columbia, bringing with them their faith, culture, and traditions.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">Growth</div>
+        <div class="timeline-content">
+          <h4>Association Founded</h4>
+          <p>Community leaders establish the Maronite Association of British Columbia to formally serve the growing Maronite diaspora.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">Today</div>
+        <div class="timeline-content">
+          <h4>Thriving Community</h4>
+          <p>A vibrant, multi-generational community celebrating faith, culture, and fellowship under the Eparchy of Saint Maron, Canada.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-cross">✝</div>
+  <p class="footer-title">MARONITE ASSOCIATION OF BRITISH COLUMBIA</p>
+  <p class="footer-sub">EPARCHY OF SAINT MARON · CANADA · جمعية الموارنة</p>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="faith.html">Our Faith</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="saints.html">Saints</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <p class="footer-bottom">© 2026 Maronite Association of British Columbia · All Rights Reserved · Blessed are the peacemakers ✝</p>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

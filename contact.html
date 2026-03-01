@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Maronite Association of BC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 60px;
+    margin-top: 60px;
+    align-items: start;
+  }
+
+  /* Info side */
+  .contact-info-card {
+    background: linear-gradient(135deg, var(--deep), var(--purple));
+    border-radius: 20px;
+    padding: 40px 36px;
+    border: 1px solid rgba(196,154,42,0.3);
+    box-shadow: 0 12px 50px rgba(30,11,51,0.2);
+    position: sticky;
+    top: 90px;
+  }
+  .contact-info-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 17px;
+    color: var(--gold2);
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(196,154,42,0.2);
+  }
+  .contact-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 28px;
+    align-items: flex-start;
+  }
+  .contact-icon {
+    width: 44px; height: 44px;
+    background: rgba(196,154,42,0.15);
+    border: 1px solid rgba(196,154,42,0.3);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .contact-item-text {}
+  .contact-item-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .contact-item-val {
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+  }
+  .contact-item-val a { color: var(--gold2); text-decoration: none; }
+  .contact-item-val a:hover { text-decoration: underline; }
+
+  .social-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(196,154,42,0.2);
+  }
+  .social-btn {
+    flex: 1;
+    padding: 10px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(196,154,42,0.2);
+    border-radius: 10px;
+    color: var(--gold2);
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .social-btn:hover { background: rgba(196,154,42,0.15); border-color: var(--gold); }
+  .social-icon { font-size: 18px; display: block; margin-bottom: 4px; }
+
+  /* Form side */
+  .contact-form-wrap {}
+  .form-title {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    color: var(--deep);
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+  .form-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--grey);
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .form-group { margin-bottom: 22px; }
+  .form-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--grey);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .form-input, .form-select, .form-textarea {
+    width: 100%;
+    padding: 14px 18px;
+    background: #fff;
+    border: 1px solid rgba(196,154,42,0.25);
+    border-radius: 10px;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(196,154,42,0.1);
+  }
+  .form-textarea { resize: vertical; min-height: 140px; }
+  .form-select { appearance: none; cursor: pointer; }
+
+  .form-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .form-check input[type="checkbox"] {
+    width: 18px; height: 18px;
+    accent-color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 2px;
+    cursor: pointer;
+  }
+  .form-check label {
+    font-size: 13px;
+    color: var(--grey);
+    line-height: 1.6;
+    cursor: pointer;
+  }
+
+  .form-submit {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--gold), #A07820);
+    color: var(--deep);
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(196,154,42,0.35);
+  }
+  .form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(196,154,42,0.5);
+  }
+
+  .success-msg {
+    display: none;
+    background: linear-gradient(135deg, var(--deep), var(--purple));
+    border: 1px solid rgba(196,154,42,0.3);
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .success-msg .cross { font-size: 36px; color: var(--gold); margin-bottom: 12px; }
+  .success-msg h4 { font-family: 'Cinzel', serif; color: var(--gold2); font-size: 16px; margin-bottom: 8px; }
+  .success-msg p { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; color: rgba(255,255,255,0.8); }
+  .success-msg.show { display: block; }
+
+  /* Map placeholder */
+  .map-placeholder {
+    background: linear-gradient(135deg, var(--deep), #2D1050);
+    border-radius: 16px;
+    padding: 60px 20px;
+    text-align: center;
+    border: 1px solid rgba(196,154,42,0.2);
+    margin-top: 50px;
+  }
+  .map-placeholder h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold2);
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  .map-placeholder p { color: rgba(255,255,255,0.6); font-size: 14px; }
+
+  @media (max-width: 768px) {
+    .contact-layout { grid-template-columns: 1fr; }
+    .contact-info-card { position: static; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logos">
+    <div class="nav-title">MARONITE ASSOCIATION<span>OF BRITISH COLUMBIA</span></div>
+  </div>
+  <button class="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="faith.html">Our Faith</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="saints.html">Saints</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-pattern"></div>
+  <div class="page-hero-content">
+    <p class="page-hero-eyebrow">✦ WE'D LOVE TO HEAR FROM YOU ✦</p>
+    <h1 class="page-hero-title">Contact Us</h1>
+    <p class="page-hero-sub">Reach out for information, prayer requests, or to join our community</p>
+    <div class="page-divider"><span>✝</span></div>
+  </div>
+</div>
+
+<!-- CONTACT SECTION -->
+<div class="content-section">
+  <div style="text-align:center;">
+    <p class="section-label">GET IN TOUCH</p>
+    <h2 class="section-title">We Welcome You</h2>
+    <div class="section-rule"></div>
+    <p class="section-desc">Whether you are a longtime Maronite, newly arrived to BC, or simply curious about our faith and community — please don't hesitate to reach out.</p>
+  </div>
+
+  <div class="contact-layout">
+    <!-- Info card -->
+    <div class="contact-info-card reveal">
+      <h3>✝ CONTACT INFORMATION</h3>
+
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div class="contact-item-text">
+          <p class="contact-item-label">LOCATION</p>
+          <p class="contact-item-val">Greater Vancouver Area<br>British Columbia, Canada</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-item-text">
+          <p class="contact-item-label">EMAIL</p>
+          <p class="contact-item-val"><a href="mailto:info@maronitebc.ca">info@maronitebc.ca</a></p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div class="contact-item-text">
+          <p class="contact-item-label">PHONE</p>
+          <p class="contact-item-val"><a href="tel:+17781234567">+1 (778) 123-4567</a></p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">🕙</div>
+        <div class="contact-item-text">
+          <p class="contact-item-label">OFFICE HOURS</p>
+          <p class="contact-item-val">Tuesday – Friday<br>10:00 AM – 4:00 PM</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">⛪</div>
+        <div class="contact-item-text">
+          <p class="contact-item-label">EPARCHY</p>
+          <p class="contact-item-val">Eparchy of Saint Maron<br>Canada</p>
+        </div>
+      </div>
+
+      <div class="social-row">
+        <a class="social-btn" href="#" aria-label="Facebook">
+          <span class="social-icon">📘</span>Facebook
+        </a>
+        <a class="social-btn" href="#" aria-label="Instagram">
+          <span class="social-icon">📸</span>Instagram
+        </a>
+        <a class="social-btn" href="#" aria-label="YouTube">
+          <span class="social-icon">📺</span>YouTube
+        </a>
+      </div>
+    </div>
+
+    <!-- Contact form -->
+    <div class="reveal">
+      <h3 class="form-title">Send Us a Message</h3>
+      <p class="form-desc">Fill out the form below and we will respond as soon as possible. God bless you.</p>
+
+      <form id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="firstName">FIRST NAME *</label>
+            <input class="form-input" type="text" id="firstName" placeholder="Your first name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="lastName">LAST NAME *</label>
+            <input class="form-input" type="text" id="lastName" placeholder="Your last name" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">EMAIL ADDRESS *</label>
+          <input class="form-input" type="email" id="email" placeholder="your@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="phone">PHONE NUMBER (OPTIONAL)</label>
+          <input class="form-input" type="tel" id="phone" placeholder="+1 (604) 000-0000">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="subject">SUBJECT *</label>
+          <select class="form-select" id="subject" required>
+            <option value="" disabled selected>Select a subject…</option>
+            <option>General Inquiry</option>
+            <option>Events & Liturgies</option>
+            <option>Membership / Join Us</option>
+            <option>Sacramental Preparation</option>
+            <option>Prayer Request</option>
+            <option>Volunteering</option>
+            <option>Donation / Support</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">YOUR MESSAGE *</label>
+          <textarea class="form-textarea" id="message" placeholder="Write your message here…" required></textarea>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" id="newsletter">
+          <label for="newsletter">I'd like to receive newsletters and event updates from the Maronite Association of BC.</label>
+        </div>
+
+        <button type="submit" class="form-submit">Send Message ✝</button>
+      </form>
+
+      <div class="success-msg" id="successMsg">
+        <div class="cross">✝</div>
+        <h4>Message Received — God Bless You!</h4>
+        <p>Thank you for reaching out. We will be in touch with you as soon as possible. May Saint Maron intercede for you and your intentions.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Map placeholder -->
+  <div class="map-placeholder reveal" style="margin-top:60px;">
+    <h3>📍 Find Us in British Columbia</h3>
+    <p>Location and venue details are provided to registered attendees and members.<br>Contact us for more information about upcoming liturgy locations.</p>
+  </div>
+</div>
+
+<!-- FAQ quick -->
+<div style="background:var(--offwhite); padding: 80px 20px;">
+  <div style="max-width:800px; margin:0 auto; text-align:center;">
+    <p class="section-label">COMMON QUESTIONS</p>
+    <h2 class="section-title">Quick Answers</h2>
+    <div class="section-rule"></div>
+    <div style="margin-top:40px; text-align:left; display:flex; flex-direction:column; gap:20px;">
+      <div style="background:#fff; border-radius:14px; padding:24px 28px; border:1px solid rgba(196,154,42,0.15);" class="reveal">
+        <h4 style="font-family:'Cinzel',serif; font-size:14px; color:var(--deep); margin-bottom:8px;">Can non-Maronites attend your liturgies?</h4>
+        <p style="font-size:14px; color:var(--grey); line-height:1.7;">Absolutely. All are welcome to attend our liturgies and events. Catholics of any rite may receive Holy Communion; guests of other traditions are warmly invited to attend and observe.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; padding:24px 28px; border:1px solid rgba(196,154,42,0.15);" class="reveal">
+        <h4 style="font-family:'Cinzel',serif; font-size:14px; color:var(--deep); margin-bottom:8px;">How do I become a member of the Association?</h4>
+        <p style="font-size:14px; color:var(--grey); line-height:1.7;">Simply fill out the contact form above and select "Membership / Join Us." We'll reach out with details about membership and upcoming events.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; padding:24px 28px; border:1px solid rgba(196,154,42,0.15);" class="reveal">
+        <h4 style="font-family:'Cinzel',serif; font-size:14px; color:var(--deep); margin-bottom:8px;">Do you offer sacramental services such as baptism or marriage?</h4>
+        <p style="font-size:14px; color:var(--grey); line-height:1.7;">Yes. Please contact us and we will connect you with the appropriate clergy for sacramental preparation and scheduling.</p>
+      </div>
+      <div style="background:#fff; border-radius:14px; padding:24px 28px; border:1px solid rgba(196,154,42,0.15);" class="reveal">
+        <h4 style="font-family:'Cinzel',serif; font-size:14px; color:var(--deep); margin-bottom:8px;">Do you have programs for youth and families?</h4>
+        <p style="font-size:14px; color:var(--grey); line-height:1.7;">Yes — we offer faith formation, cultural programs, and social events for all ages. Contact us to learn more about our current offerings for youth and families.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-cross">✝</div>
+  <p class="footer-title">MARONITE ASSOCIATION OF BRITISH COLUMBIA</p>
+  <p class="footer-sub">EPARCHY OF SAINT MARON · CANADA · جمعية الموارنة</p>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="faith.html">Our Faith</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="saints.html">Saints</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <p class="footer-bottom">© 2026 Maronite Association of British Columbia · All Rights Reserved · Blessed are the peacemakers ✝</p>
+</footer>
+
+<script src="main.js"></script>
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('successMsg').classList.add('show');
+  });
+</script>
+</body>
+</html>

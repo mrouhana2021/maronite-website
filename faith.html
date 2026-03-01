@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Faith — Maronite Association of BC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .faith-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-top: 60px;
+  }
+  .faith-intro-text h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    color: var(--deep);
+    margin-bottom: 14px;
+  }
+  .faith-intro-text p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--grey);
+    margin-bottom: 14px;
+  }
+  .quote-block {
+    background: linear-gradient(135deg, var(--deep), var(--purple));
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .quote-block::before {
+    content: '"';
+    position: absolute;
+    top: -10px; left: 20px;
+    font-size: 120px;
+    color: rgba(196,154,42,0.15);
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1;
+  }
+  .quote-block blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 16px;
+  }
+  .quote-block cite {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold2);
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+    margin-top: 50px;
+  }
+  .pillar-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 36px 28px;
+    border: 1px solid rgba(196,154,42,0.15);
+    box-shadow: 0 4px 20px rgba(30,11,51,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .pillar-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(30,11,51,0.12);
+  }
+  .pillar-num {
+    font-family: 'Cinzel', serif;
+    font-size: 36px;
+    color: rgba(196,154,42,0.25);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .pillar-title {
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    color: var(--deep);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+  .pillar-text { font-size: 14px; color: var(--grey); line-height: 1.8; }
+
+  .sacraments-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 40px;
+    justify-content: center;
+  }
+  .sacrament-pill {
+    background: linear-gradient(135deg, var(--purple), var(--deep));
+    color: var(--gold2);
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 12px 24px;
+    border-radius: 40px;
+    border: 1px solid rgba(196,154,42,0.3);
+  }
+
+  .liturgy-block {
+    background: linear-gradient(135deg, #0D0520, #1E0B33);
+    border-radius: 20px;
+    padding: 50px 40px;
+    margin-top: 50px;
+    text-align: center;
+    border: 1px solid rgba(196,154,42,0.2);
+  }
+  .liturgy-block h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    color: var(--gold2);
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+  }
+  .liturgy-block p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto 30px;
+  }
+  .arabic-text {
+    font-size: 28px;
+    color: rgba(232,197,90,0.7);
+    letter-spacing: 4px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .faith-intro { grid-template-columns: 1fr; }
+    .liturgy-block { padding: 30px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logos">
+    <div class="nav-title">MARONITE ASSOCIATION<span>OF BRITISH COLUMBIA</span></div>
+  </div>
+  <button class="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="faith.html" class="active">Our Faith</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="saints.html">Saints</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-pattern"></div>
+  <div class="page-hero-content">
+    <p class="page-hero-eyebrow">✦ ANCIENT AND LIVING ✦</p>
+    <h1 class="page-hero-title">Our Faith</h1>
+    <p class="page-hero-sub">The Maronite tradition — a Syriac heritage faithful to Christ and to Rome</p>
+    <div class="page-divider"><span>✝</span></div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="content-section">
+  <div style="text-align:center;">
+    <p class="section-label">THE MARONITE CHURCH</p>
+    <h2 class="section-title">An Ancient Eastern Tradition</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="faith-intro">
+    <div class="faith-intro-text reveal">
+      <h3>Rooted in Antioch</h3>
+      <p>The Maronite Church traces its origins to the followers of Saint Maron, a 4th-century Syrian hermit monk renowned for his holiness and miraculous gifts. His disciples formed a monastic community along the Orontes River in Syria, establishing what would become the Maronite spiritual and ecclesial tradition.</p>
+      <p>As one of the Eastern Catholic Churches in full communion with the Holy See of Rome, the Maronite Church retains its own liturgical rite, the Syriac-Maronite Antiochene Rite, celebrated primarily in Syriac and Arabic, with elements of the language Jesus himself spoke.</p>
+      <p>The Maronite Church has never had a period of separation from Rome — a source of great pride for Maronites worldwide and a witness to unity in the universal Church.</p>
+    </div>
+    <div class="reveal">
+      <div class="quote-block">
+        <blockquote>"The Maronite Church is the Church of Lebanon, and Lebanon is the message of the Maronite Church to the world — the message of coexistence, dialogue, and peace."</blockquote>
+        <cite>— MARONITE SPIRITUAL TRADITION</cite>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PILLARS -->
+<div style="background:var(--offwhite); padding: 80px 20px;">
+  <div style="max-width:1100px; margin:0 auto; text-align:center;">
+    <p class="section-label">FOUNDATIONS</p>
+    <h2 class="section-title">Pillars of Maronite Faith</h2>
+    <div class="section-rule"></div>
+    <div class="pillars-grid">
+      <div class="pillar-card reveal">
+        <div class="pillar-num">01</div>
+        <h3 class="pillar-title">Communion with Rome</h3>
+        <p class="pillar-text">The Maronite Church has always remained in full, unbroken communion with the successor of Saint Peter, a testament to our fidelity to the universal Church.</p>
+      </div>
+      <div class="pillar-card reveal">
+        <div class="pillar-num">02</div>
+        <h3 class="pillar-title">Syriac Liturgy</h3>
+        <p class="pillar-text">Our worship is celebrated in the Syriac-Antiochene rite, drawing on the language and spirituality of the earliest Christian communities in the East.</p>
+      </div>
+      <div class="pillar-card reveal">
+        <div class="pillar-num">03</div>
+        <h3 class="pillar-title">Monastic Spirit</h3>
+        <p class="pillar-text">Monastic life has always been the heartbeat of the Maronite Church, giving rise to great saints like Saint Charbel, Saint Rafqa, and Saint Nimatullah.</p>
+      </div>
+      <div class="pillar-card reveal">
+        <div class="pillar-num">04</div>
+        <h3 class="pillar-title">Lebanon as Message</h3>
+        <p class="pillar-text">The cedar-crowned land of Lebanon is inseparable from Maronite identity — a model of coexistence, dialogue, and witness for Christians in the Middle East.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LITURGY -->
+<div class="content-section">
+  <div style="text-align:center;">
+    <p class="section-label">WORSHIP</p>
+    <h2 class="section-title">The Maronite Liturgy</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="liturgy-block reveal">
+    <span class="arabic-text">قدّوس قدّوس قدّوس</span>
+    <h3>Holy, Holy, Holy</h3>
+    <p>The Maronite Qurbono (Divine Liturgy) is a feast of the senses and the spirit — ancient Syriac chants, fragrant incense, and the breaking of bread that has united the faithful across seventeen centuries. When you attend a Maronite Mass, you encounter a living link to the earliest Christian worship.</p>
+    <a href="events.html" class="btn-gold">Find a Liturgy Near You ✝</a>
+  </div>
+</div>
+
+<!-- SACRAMENTS -->
+<div style="background:var(--offwhite); padding: 80px 20px;">
+  <div style="max-width:1100px; margin:0 auto; text-align:center;">
+    <p class="section-label">SEVEN MYSTERIES</p>
+    <h2 class="section-title">The Sacraments</h2>
+    <div class="section-rule"></div>
+    <p class="section-desc">In the Maronite tradition, the seven sacraments — or "Holy Mysteries" — are the living channels of God's grace through which Christ encounters His people.</p>
+    <div class="sacraments-row">
+      <div class="sacrament-pill reveal">✦ Baptism</div>
+      <div class="sacrament-pill reveal">✦ Chrismation</div>
+      <div class="sacrament-pill reveal">✦ Eucharist</div>
+      <div class="sacrament-pill reveal">✦ Reconciliation</div>
+      <div class="sacrament-pill reveal">✦ Anointing of the Sick</div>
+      <div class="sacrament-pill reveal">✦ Holy Orders</div>
+      <div class="sacrament-pill reveal">✦ Crowning (Marriage)</div>
+    </div>
+    <p style="margin-top:40px; font-family:'Cormorant Garamond', serif; font-size:18px; font-style:italic; color:var(--grey);">For sacramental preparation, baptism, or marriage inquiries, please <a href="contact.html" style="color:var(--gold); text-decoration:none;">contact us</a>.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-cross">✝</div>
+  <p class="footer-title">MARONITE ASSOCIATION OF BRITISH COLUMBIA</p>
+  <p class="footer-sub">EPARCHY OF SAINT MARON · CANADA · جمعية الموارنة</p>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="faith.html">Our Faith</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="saints.html">Saints</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <p class="footer-bottom">© 2026 Maronite Association of British Columbia · All Rights Reserved · Blessed are the peacemakers ✝</p>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

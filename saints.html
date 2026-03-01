@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saints — Maronite Association of BC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .saint-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 80px;
+    padding-bottom: 80px;
+    border-bottom: 1px solid rgba(196,154,42,0.15);
+  }
+  .saint-feature:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .saint-feature.reverse { direction: rtl; }
+  .saint-feature.reverse > * { direction: ltr; }
+
+  .saint-img-wrap {
+    position: relative;
+  }
+  .saint-img-box {
+    background: linear-gradient(135deg, var(--deep), var(--purple));
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    border: 1px solid rgba(196,154,42,0.3);
+    box-shadow: 0 12px 50px rgba(30,11,51,0.2);
+  }
+  .saint-img-box img {
+    width: 100%;
+    max-width: 280px;
+    border-radius: 12px;
+    margin: 0 auto;
+    display: block;
+  }
+  .saint-img-box .saint-name-label {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: var(--gold2);
+    letter-spacing: 2px;
+    margin-top: 16px;
+  }
+  .saint-img-box .saint-dates {
+    font-size: 12px;
+    color: rgba(196,154,42,0.6);
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+  .saint-icon-box {
+    background: linear-gradient(135deg, var(--deep), var(--purple));
+    border-radius: 20px;
+    padding: 60px 40px;
+    text-align: center;
+    border: 1px solid rgba(196,154,42,0.3);
+    box-shadow: 0 12px 50px rgba(30,11,51,0.2);
+  }
+  .saint-icon { font-size: 80px; margin-bottom: 20px; }
+  .saint-name-label {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: var(--gold2);
+    letter-spacing: 2px;
+    margin-top: 16px;
+  }
+  .saint-dates {
+    font-size: 12px;
+    color: rgba(196,154,42,0.6);
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  .saint-content {}
+  .saint-feast {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    background: rgba(196,154,42,0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+  .saint-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(22px, 3vw, 34px);
+    color: var(--deep);
+    margin-bottom: 14px;
+    letter-spacing: 1px;
+  }
+  .saint-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--mid);
+    margin-bottom: 20px;
+  }
+  .saint-text {
+    font-size: 15px;
+    color: var(--grey);
+    line-height: 1.9;
+    margin-bottom: 14px;
+  }
+  .saint-quote {
+    border-left: 3px solid var(--gold);
+    padding: 14px 20px;
+    margin: 20px 0;
+    background: rgba(196,154,42,0.05);
+    border-radius: 0 10px 10px 0;
+  }
+  .saint-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--deep);
+    line-height: 1.7;
+  }
+
+  .beatified-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 50px;
+  }
+  .beatified-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px 22px;
+    text-align: center;
+    border: 1px solid rgba(196,154,42,0.15);
+    box-shadow: 0 4px 16px rgba(30,11,51,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .beatified-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(30,11,51,0.12);
+  }
+  .beatified-icon { font-size: 40px; margin-bottom: 14px; }
+  .beatified-name {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: var(--deep);
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  .beatified-desc { font-size: 13px; color: var(--grey); line-height: 1.7; }
+  .beatified-feast { font-size: 11px; color: var(--gold); margin-top: 8px; letter-spacing: 1px; }
+
+  @media (max-width: 768px) {
+    .saint-feature { grid-template-columns: 1fr; }
+    .saint-feature.reverse { direction: ltr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logos">
+    <div class="nav-title">MARONITE ASSOCIATION<span>OF BRITISH COLUMBIA</span></div>
+  </div>
+  <button class="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="faith.html">Our Faith</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="saints.html" class="active">Saints</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-pattern"></div>
+  <div class="page-hero-content">
+    <p class="page-hero-eyebrow">✦ CLOUD OF WITNESSES ✦</p>
+    <h1 class="page-hero-title">Maronite Saints</h1>
+    <p class="page-hero-sub">Shining lights of holiness who have illumined our tradition across the centuries</p>
+    <div class="page-divider"><span>✝</span></div>
+  </div>
+</div>
+
+<!-- MAIN SAINTS -->
+<div class="content-section">
+  <div style="text-align:center; margin-bottom:60px;">
+    <p class="section-label">HEAVENLY PATRONS</p>
+    <h2 class="section-title">Our Great Saints</h2>
+    <div class="section-rule"></div>
+    <p class="section-desc">The Maronite Church has been blessed with extraordinary saints whose lives continue to inspire and intercede for the faithful.</p>
+  </div>
+
+  <!-- Saint Maron -->
+  <div class="saint-feature">
+    <div class="saint-img-wrap reveal">
+      <div class="saint-img-box">
+        <img src="saint_maron.jpg" alt="Saint Maron">
+        <p class="saint-name-label">SAINT MARON</p>
+        <p class="saint-dates">c. 350 – c. 410 AD</p>
+      </div>
+    </div>
+    <div class="saint-content reveal">
+      <span class="saint-feast">✦ FEAST: FEBRUARY 9</span>
+      <h2 class="saint-title">Saint Maron</h2>
+      <p class="saint-subtitle">Hermit Monk · Father of the Maronite Church</p>
+      <p class="saint-text">Saint Maron was a Syrian hermit monk who lived in the hills near the Orontes River in the late 4th and early 5th centuries. Renowned for his austere penances and miraculous gifts of healing, he attracted numerous disciples who formed the nucleus of what would become the Maronite monastic community.</p>
+      <p class="saint-text">His disciples built the first Maronite monastery on Mount Lebanon after the saint's repose, preserving his teachings and expanding the community that bears his name. The entire Maronite Church — spanning millions of faithful worldwide — traces its spiritual lineage to this humble Syrian ascetic.</p>
+      <div class="saint-quote">
+        <p>"From his cell on the hills of Syria, Saint Maron enkindled a flame that crossed the mountains of Lebanon and reached to the ends of the earth."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Saint Charbel -->
+  <div class="saint-feature reverse">
+    <div class="saint-content reveal">
+      <span class="saint-feast">✦ FEAST: JULY 24 & THIRD SUNDAY OF NOVEMBER</span>
+      <h2 class="saint-title">Saint Charbel Makhlouf</h2>
+      <p class="saint-subtitle">Monk & Hermit · Patron of Lebanon</p>
+      <p class="saint-text">Saint Charbel Makhlouf (1828–1898) is the most beloved Maronite saint of modern times. Born Youssef Antoun Makhlouf in the Lebanese village of Beka'a Kafra, he entered the Maronite Order and eventually lived as a hermit at the Hermitage of Saints Peter and Paul near Annaya.</p>
+      <p class="saint-text">After his death on Christmas Eve 1898, miraculous phenomena were reported at his tomb — supernatural light and the incorruption of his body. He was canonized by Pope Paul VI in 1977, and reports of miracles through his intercession continue to this day from all corners of the world.</p>
+      <div class="saint-quote">
+        <p>"I am a sinner who has had the grace of God. Whatever good I have done has been with His help."</p>
+      </div>
+      <a href="events.html" class="btn-gold" style="margin-top:10px;">Attend a Feast Day Mass ✝</a>
+    </div>
+    <div class="saint-img-wrap reveal">
+      <div class="saint-icon-box">
+        <div class="saint-icon">🌿</div>
+        <p class="saint-name-label">SAINT CHARBEL</p>
+        <p class="saint-dates">1828 – 1898</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Saint Rafqa -->
+  <div class="saint-feature">
+    <div class="saint-img-wrap reveal">
+      <div class="saint-icon-box">
+        <div class="saint-icon">🌹</div>
+        <p class="saint-name-label">SAINT RAFQA</p>
+        <p class="saint-dates">1832 – 1914</p>
+      </div>
+    </div>
+    <div class="saint-content reveal">
+      <span class="saint-feast">✦ FEAST: MARCH 23</span>
+      <h2 class="saint-title">Saint Rafqa (Rebecca) Pietra Choboq Ar-Rayes</h2>
+      <p class="saint-subtitle">Nun · Mystic · Patron of the Sick</p>
+      <p class="saint-text">Saint Rafqa, born Boutrossiyeh Ar-Rayes in 1832 in Himlaya, Lebanon, is known as the mystical bride of Christ who embraced suffering with extraordinary joy and love. After years of religious life, she prayed to share in the sufferings of Christ, and subsequently endured decades of blindness and painful illness — offering it all in union with her Lord.</p>
+      <p class="saint-text">Canonized by Pope John Paul II in 2001, Saint Rafqa is a beloved intercessor for those who suffer, and her witness to redemptive suffering continues to inspire countless faithful.</p>
+      <div class="saint-quote">
+        <p>"If this is your will, O Lord, let it be done. Give me strength and I will bear this suffering for love of You."</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OTHER BLESSED -->
+<div style="background:var(--offwhite); padding: 80px 20px;">
+  <div style="max-width:1100px; margin:0 auto; text-align:center;">
+    <p class="section-label">BLESSED AND VENERABLE</p>
+    <h2 class="section-title">More Maronite Blesseds</h2>
+    <div class="section-rule"></div>
+    <p class="section-desc">A luminous cloud of witnesses who walked the path of holiness in the Maronite tradition.</p>
+    <div class="beatified-grid">
+      <div class="beatified-card reveal">
+        <div class="beatified-icon">✝</div>
+        <h3 class="beatified-name">Saint Nimatullah Kassab Al-Hardini</h3>
+        <p class="beatified-desc">Lebanese monk, teacher, and mystic. Canonized 2004. Known for deep Eucharistic devotion and care for his students.</p>
+        <p class="beatified-feast">Feast: December 14</p>
+      </div>
+      <div class="beatified-card reveal">
+        <div class="beatified-icon">🕊</div>
+        <h3 class="beatified-name">Blessed Francis of Ghazir</h3>
+        <p class="beatified-desc">Lebanese Maronite priest beatified in 2008, known for his priestly zeal and care for the poor of his community.</p>
+        <p class="beatified-feast">Feast: October 1</p>
+      </div>
+      <div class="beatified-card reveal">
+        <div class="beatified-icon">🌲</div>
+        <h3 class="beatified-name">Blessed Estephan Nehme</h3>
+        <p class="beatified-desc">Young Lebanese Maronite monk beatified in 1998, who lived a short but deeply contemplative life of prayer and penance.</p>
+        <p class="beatified-feast">Feast: August 10</p>
+      </div>
+      <div class="beatified-card reveal">
+        <div class="beatified-icon">🌹</div>
+        <h3 class="beatified-name">Martyrs of Damascus</h3>
+        <p class="beatified-desc">Eight Franciscan friars and three Maronite laymen who were martyred in Damascus in 1860 for their Christian faith.</p>
+        <p class="beatified-feast">Feast: July 10</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRAYER SECTION -->
+<div class="content-section" style="text-align:center;">
+  <p class="section-label">INTERCESSION</p>
+  <h2 class="section-title">Prayer to Saint Maron</h2>
+  <div class="section-rule"></div>
+  <div style="max-width:600px; margin:40px auto 0; background:linear-gradient(135deg, var(--deep), var(--purple)); border-radius:20px; padding:40px; border:1px solid rgba(196,154,42,0.3);">
+    <div style="font-size:32px; margin-bottom:20px;">✝</div>
+    <p style="font-family:'Cormorant Garamond', serif; font-size:19px; font-style:italic; color:rgba(255,255,255,0.9); line-height:1.8; margin-bottom:20px;">O Saint Maron, faithful servant of God and father of our Church, intercede for us before the throne of grace. May your example of piety, penance, and prayer inspire us to walk ever closer to our Lord. Pray for the Maronite faithful throughout the world, and especially for our community in British Columbia. Amen.</p>
+    <p style="font-family:'Cinzel', serif; font-size:11px; letter-spacing:3px; color:var(--gold2);">MARONITE PRAYER</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-cross">✝</div>
+  <p class="footer-title">MARONITE ASSOCIATION OF BRITISH COLUMBIA</p>
+  <p class="footer-sub">EPARCHY OF SAINT MARON · CANADA · جمعية الموارنة</p>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="faith.html">Our Faith</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="saints.html">Saints</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <p class="footer-bottom">© 2026 Maronite Association of British Columbia · All Rights Reserved · Blessed are the peacemakers ✝</p>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
