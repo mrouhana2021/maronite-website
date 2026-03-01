@@ -153,8 +153,13 @@
   .beatified-feast { font-size: 11px; color: var(--gold); margin-top: 8px; letter-spacing: 1px; }
 
   @media (max-width: 768px) {
-    .saint-feature { grid-template-columns: 1fr; }
+    .saint-feature { grid-template-columns: 1fr; gap: 30px; margin-bottom: 50px; padding-bottom: 50px; }
     .saint-feature.reverse { direction: ltr; }
+    .saint-title { font-size: 22px; }
+    .saint-text { font-size: 14px; }
+    .saint-img-box, .saint-icon-box { padding: 24px 20px; }
+    .saint-img-box img { max-width: 200px; }
+    .beatified-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -234,8 +239,8 @@
       <a href="events.html" class="btn-gold" style="margin-top:10px;">Attend a Feast Day Mass ✝</a>
     </div>
     <div class="saint-img-wrap reveal">
-      <div class="saint-icon-box">
-        <div class="saint-icon">🌿</div>
+      <div class="saint-img-box">
+        <img src="saint_charbel.jpg" alt="Saint Charbel Makhlouf">
         <p class="saint-name-label">SAINT CHARBEL</p>
         <p class="saint-dates">1828 – 1898</p>
       </div>
@@ -245,8 +250,8 @@
   <!-- Saint Rafqa -->
   <div class="saint-feature">
     <div class="saint-img-wrap reveal">
-      <div class="saint-icon-box">
-        <div class="saint-icon">🌹</div>
+      <div class="saint-img-box">
+        <img src="saint_rafqa.jpg" alt="Saint Rafqa">
         <p class="saint-name-label">SAINT RAFQA</p>
         <p class="saint-dates">1832 – 1914</p>
       </div>
