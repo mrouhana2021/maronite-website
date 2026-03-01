@@ -290,22 +290,108 @@ section { padding: 90px 40px; }
   gap: 80px;
   align-items: center;
 }
+
+/* Community image — elevated treatment */
 .about-image-wrap {
   position: relative;
+  border-radius: 20px;
 }
+
+/* Outer decorative gold ring */
 .about-image-wrap::before {
   content: '';
   position: absolute;
-  top: -20px; left: -20px;
-  right: 20px; bottom: 20px;
-  border: 2px solid var(--gold);
-  opacity: 0.4;
+  top: -12px; left: -12px; right: -12px; bottom: -12px;
+  border-radius: 26px;
+  border: 1px solid rgba(196,154,42,0.45);
   pointer-events: none;
+  z-index: 0;
 }
-.about-image-wrap img {
+
+/* Second inner accent line */
+.about-image-wrap::after {
+  content: '';
+  position: absolute;
+  top: -5px; left: -5px; right: -5px; bottom: -5px;
+  border-radius: 22px;
+  border: 1px solid rgba(196,154,42,0.18);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* The frame box that holds image + caption */
+.about-image-frame {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow:
+    0 2px 0 rgba(196,154,42,0.5),
+    0 -2px 0 rgba(196,154,42,0.5),
+    0 20px 60px rgba(30,11,51,0.28),
+    0 4px 16px rgba(0,0,0,0.15);
+  z-index: 1;
+}
+
+.about-image-frame img {
   width: 100%;
   display: block;
-  filter: drop-shadow(0 10px 40px rgba(74,30,107,0.2));
+  border-radius: 18px 18px 0 0;
+  filter: brightness(0.97) contrast(1.04) saturate(0.95);
+  -webkit-filter: brightness(0.97) contrast(1.04) saturate(0.95);
+  transition: transform 0.6s ease, filter 0.6s ease;
+  -webkit-transition: -webkit-transform 0.6s ease, -webkit-filter 0.6s ease;
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.about-image-wrap:hover .about-image-frame img {
+  transform: scale(1.015);
+  -webkit-transform: scale(1.015);
+  filter: brightness(1.02) contrast(1.04) saturate(1.0);
+  -webkit-filter: brightness(1.02) contrast(1.04) saturate(1.0);
+}
+
+/* Vignette overlay on image */
+.about-image-vignette {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 18px 18px 0 0;
+  background:
+    radial-gradient(ellipse at center, transparent 55%, rgba(10,4,21,0.35) 100%);
+  pointer-events: none;
+}
+
+/* Caption bar at the bottom */
+.about-image-caption {
+  background: linear-gradient(135deg, var(--deep) 0%, #2D1050 100%);
+  border-top: 1px solid rgba(196,154,42,0.35);
+  padding: 14px 22px;
+  display: -webkit-flex; display: flex;
+  -webkit-align-items: center; align-items: center;
+  -webkit-justify-content: space-between; justify-content: space-between;
+  border-radius: 0 0 18px 18px;
+}
+.about-image-caption-left {
+  display: -webkit-flex; display: flex;
+  -webkit-flex-direction: column; flex-direction: column;
+  gap: 2px;
+}
+.about-image-caption-text {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  color: var(--gold2);
+}
+.about-image-caption-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.5px;
+}
+.about-image-caption-cross {
+  font-size: 22px;
+  color: rgba(196,154,42,0.5);
+  line-height: 1;
 }
 .about-text p {
   font-family: 'Lato', sans-serif;
@@ -759,7 +845,17 @@ footer {
   <div class="section-inner">
     <div class="about-grid">
       <div class="about-image-wrap reveal">
-        <img src="community.png" alt="Maronite Community Gathering" class="about-image">
+        <div class="about-image-frame">
+          <img src="community.png" alt="Maronite Community Gathering in Vancouver">
+          <div class="about-image-vignette"></div>
+          <div class="about-image-caption">
+            <div class="about-image-caption-left">
+              <span class="about-image-caption-text">OUR COMMUNITY · VANCOUVER, BC</span>
+              <span class="about-image-caption-sub">Gathered in faith, united in love</span>
+            </div>
+            <span class="about-image-caption-cross">✝</span>
+          </div>
+        </div>
       </div>
       <div class="about-text reveal">
         <p class="section-tag">WHO WE ARE</p>
